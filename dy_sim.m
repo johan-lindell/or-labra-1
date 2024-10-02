@@ -11,7 +11,7 @@ v = X(3);       % velocity
 gamma = X(4);   % flight path angle
 
 %stay level
-cl = g*cos(gamma)/(v*s*0.5*rho*v/m);
+%cl = g*cos(gamma)/(v*s*0.5*rho*v/m);
 
 % state equations
 xdot = v * cos(gamma);      % Horizontal velocity

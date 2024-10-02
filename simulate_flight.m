@@ -10,9 +10,16 @@ function simulate_flight(X0, tspan, m, cd0, k, s, g, rho, cl)
     % g - Gravitational acceleration (m/s^2)
     % rho - Air density (kg/m^3)
     % cl - Lift coefficient
+    function [value, isterminal, direction] = myEventsFcn(t, X)
+        value = X(2);      % We want to stop when y(1) = 0
+        isterminal = 1;    % Stop the integration when this event occurs
+        direction = 0;     % The zero can be approached from any direction
+    end
+
+    options = odeset('Events', @myEventsFcn);
 
     % Solve the state equations using ode45
-    [t, X] = ode45(@(t, X) dy_sim(X, cl, m, cd0, k, s, g, rho), tspan, X0);
+    [t, X] = ode45(@(t, X) dy_sim(X, cl, m, cd0, k, s, g, rho), tspan, X0,options);
 
     % Plot the results
     figure;

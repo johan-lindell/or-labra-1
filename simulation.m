@@ -1,7 +1,7 @@
 % Script to run simulations with different parameters
 
 % First set of parameters
-X0 = [0; 240; 2; 0];  % Initial state [x, h, v, gamma]
+X0 = [0; 10; 2; 0];  % Initial state [x, h, v, gamma]
 tspan = [0, 100];      % Time span [start, end]
 m = 100;               % Mass in kg
 cd0 = 0.034;           % Zero drag coefficient
