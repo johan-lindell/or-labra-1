@@ -1,20 +1,27 @@
-% Script to run simulations with different parameters
+% Define initial conditions and parameters
+X0 = [0; 240; 50; 0];  % Initial state [x; h; v; gamma]
+tspan = [0, 200];           % Time span for simulation
+m = 1000;                   % Mass (kg)
+cd0 = 0.02;                 % Zero-lift drag coefficient
+k = 0.04;                   % Induced drag factor
+s = 16;                     % Reference area (m^2)
+g = 9.81;                   % Gravitational acceleration (m/s^2)
+rho = 1.225;                % Air density (kg/m^3)
+cl = 0.5;                   % Lift coefficient
 
-% First set of parameters
-X0 = [0; 240; 40; 0];  % Initial state [x, h, v, gamma]
-tspan = [0, 100];      % Time span [start, end]
-m = 100;               % Mass in kg
-cd0 = 0.034;           % Zero drag coefficient
-k = 0.07;              % Induced drag coefficient
-s = 18;                % Reference area in m^2
-g = 9.809;             % Gravitational acceleration in m/s^2
-rho = 1.13;            % Air density in kg/m^3
-cl = 1.4;              % Lift coefficient
+% Vary air density (rho)
+rho_array = [1.225, 0.9, 0.6];
+simulate_flight(X0, tspan, m, cd0, k, s, g, rho_array, cl);
 
-simulate_flight(X0, tspan, m, cd0, k, s, g, rho, cl);
+% Vary mass (m)
+m_array = [800, 1000, 1200];
+simulate_flight(X0, tspan, m_array, cd0, k, s, g, rho, cl);
 
-rho_1 = 0.5;
-simulate_flight(X0, tspan, m, cd0, k, s, g, rho_1, cl);
 
-rho_2 = 2;
-simulate_flight(X0, tspan, m, cd0, k, s, g, rho_2, cl);
+% Vary gravitational constant (g)
+g_array = [9.81, 15, 1200];
+simulate_flight(X0, tspan, m, cd0, k, s, g_array, rho, cl);
+
+% Vary lift coefficient (cl)
+%cl_array = [0.4, 0.5, 0.6];
+%simulate_flight(X0, tspan, m, cd0, k, s, g, rho, cl_array);
