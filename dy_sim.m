@@ -5,13 +5,10 @@ function Xdot = dy_sim(X, cl, m, cd0, k, s, g, rho)
 % State equations of the glider
 
 % state variables
-x = X(1);       % x-coordinate
-h = X(2);       % altitude
+%x = X(1);       % x-coordinate
+%h = X(2);       % altitude
 v = X(3);       % velocity
 gamma = X(4);   % flight path angle
-
-%stay level
-%cl = g*cos(gamma)/(v*s*0.5*rho*v/m);
 
 % state equations
 xdot = v * cos(gamma);      % Horizontal velocity
