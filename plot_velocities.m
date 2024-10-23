@@ -17,7 +17,7 @@ rho = 1.13;             % Air density in kg/m^3s
 cl = 0;                 % Lift coefficient
 
 % Array of initial velocities to test
-v0_array = [0, 5, 9.8, 20, 50];  % Initial velocities (m/s)
+v0_array = [0.1, 5, 9.8, 20, 50, 100, 200];  % Initial velocities (m/s)
 
 % Initialize figure and subplots
 figureHandle = figure;
